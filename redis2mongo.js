@@ -3,12 +3,12 @@ const Redis = require('ioredis');
 const { MongoClient } = require('mongodb');
 
 const redisCluster = new Redis.Cluster([
-  { host: process.env.REDIS_HOST_1, port: Number(process.env.REDIS_PORT_1) },
-  { host: process.env.REDIS_HOST_2, port: Number(process.env.REDIS_PORT_2) },
-  { host: process.env.REDIS_HOST_3, port: Number(process.env.REDIS_PORT_3) },
-  { host: process.env.REDIS_HOST_4, port: Number(process.env.REDIS_PORT_4) },
-  { host: process.env.REDIS_HOST_5, port: Number(process.env.REDIS_PORT_5) },
-  { host: process.env.REDIS_HOST_6, port: Number(process.env.REDIS_PORT_6) }
+  { host: process.env.REDIS_HOST_1, port: Number(process.env.REDIS_PORT) },
+  { host: process.env.REDIS_HOST_2, port: Number(process.env.REDIS_PORT) },
+  { host: process.env.REDIS_HOST_3, port: Number(process.env.REDIS_PORT) },
+  { host: process.env.REDIS_HOST_4, port: Number(process.env.REDIS_PORT) },
+  { host: process.env.REDIS_HOST_5, port: Number(process.env.REDIS_PORT) },
+  { host: process.env.REDIS_HOST_6, port: Number(process.env.REDIS_PORT) }
 ]);
 
 const client = new MongoClient(process.env.MONGO_URI);
