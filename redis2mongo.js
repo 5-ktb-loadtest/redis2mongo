@@ -16,11 +16,14 @@ const dbName = 'backup';
 const collectionName = 'redis_snapshot';
 
 async function scanKeysAndBackup() {
+  console.log('Connecting to Redis...');
   await client.connect();
   const db = client.db(dbName);
   const collection = db.collection(collectionName);
 
-  const masters = redisCluster.nodes('master'); // 모든 마스터 노드 순회
+  console.log('Connected to Redis');
+
+  const masters = redisCluster.nodes('master');
   let total = 0;
 
   for (const node of masters) {
