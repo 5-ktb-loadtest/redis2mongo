@@ -35,11 +35,28 @@ async function scanKeysAndBackup() {
 
       for (const key of keys) {
         try {
-          const value = await node.get(key);
+          const type = await node.type(key);
+          let value = null;
+
+          if (type === 'string') {
+            value = await node.get(key);
+          } else if (type === 'list') {
+            value = await node.lrange(key, 0, -1);
+          } else if (type === 'set') {
+            value = await node.smembers(key);
+          } else if (type === 'zset') {
+            value = await node.zrange(key, 0, -1, 'WITHSCORES');
+          } else if (type === 'hash') {
+            value = await node.hgetall(key);
+          } else {
+            // 지원하지 않는 타입은 건너뜀
+            continue;
+          }
+
           if (value !== null) {
             await collection.updateOne(
               { key },
-              { $set: { key, value, updatedAt: new Date() } },
+              { $set: { key, value, type, updatedAt: new Date() } },
               { upsert: true }
             );
             total++;
