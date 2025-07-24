@@ -16,6 +16,7 @@ const dbName = 'backup';
 const collectionName = 'redis_snapshot';
 
 async function scanKeysAndBackup() {
+  console.log('====', new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }), '====');
   console.log('Connecting to Redis...');
   await client.connect();
   const db = client.db(dbName);
