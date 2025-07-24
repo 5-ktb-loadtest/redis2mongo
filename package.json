@@ -1,0 +1,26 @@
+{
+  "name": "redis2mongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "redis2mongo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5-ktb-loadtest/redis2mongo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/5-ktb-loadtest/redis2mongo/issues"
+  },
+  "homepage": "https://github.com/5-ktb-loadtest/redis2mongo#readme",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "ioredis": "^5.6.1",
+    "mongodb": "^6.18.0"
+  }
+}
