@@ -8,7 +8,9 @@ const redisCluster = new Redis.Cluster([
   { host: process.env.REDIS_HOST_3, port: Number(process.env.REDIS_PORT) },
   { host: process.env.REDIS_HOST_4, port: Number(process.env.REDIS_PORT) },
   { host: process.env.REDIS_HOST_5, port: Number(process.env.REDIS_PORT) },
-  { host: process.env.REDIS_HOST_6, port: Number(process.env.REDIS_PORT) }
+  { host: process.env.REDIS_HOST_6, port: Number(process.env.REDIS_PORT) },
+  { host: process.env.REDIS_HOST_7, port: Number(process.env.REDIS_PORT) },
+  { host: process.env.REDIS_HOST_8, port: Number(process.env.REDIS_PORT) },
 ]);
 
 const client = new MongoClient(process.env.MONGO_URI);
